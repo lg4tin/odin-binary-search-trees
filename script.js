@@ -50,6 +50,13 @@ class Tree {
       
     }
   }
+
+  delete(value) {
+    let currentNode = this.root;
+    if (currentNode === null) return currentNode;
+
+    
+  }
   
 }
 
