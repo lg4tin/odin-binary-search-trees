@@ -52,25 +52,28 @@ class Tree {
   }
 
   delete(value) {
-    let currentNode = this.root;
-    if (currentNode === null) return currentNode;
+    if (!this.root) {
+      return false;
+    }
 
-    
-/*
+    let currentNode = this.root;
+    let parentNode = null;
     while (currentNode) {
       if (value < currentNode.value) {
+        parentNode = currentNode;
         currentNode = currentNode.left;
-      } else if (value > currentNode.right) {
+      } else if (value > currentNode.value) {
+        parentNode = currentNode;
         currentNode = currentNode.right;
-      } else if (value === currentNode.value) {
-        return currentNode.value;
+      } else if (currentNode.value === value) {
+        
       }
     }
-  */
+  
     
   }
 
-  find(value) {
+  /*find(value) {
     let currentNode = this.root;
     
     while(true) {
@@ -83,7 +86,7 @@ class Tree {
         return currentNode
       }
     }
-  }
+  }*/
   
 }
 
