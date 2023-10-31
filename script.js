@@ -147,6 +147,23 @@ class Tree {
     }
     return 'It doesnt exist';
   }
+
+  levelOrder(func = null) {
+    if (this.root === null) return 'No!';
+
+    const values = [];
+    const queue = [this.root];
+
+    while (queue.length > 0) {
+      let current = queue.shift();
+      values.push(current.value);
+
+      if (current.left !== null) queue.push(current.left);
+      if (current.right !== null) queue.push(current.right);
+    }
+
+    return values;
+  }
 }
 
 
