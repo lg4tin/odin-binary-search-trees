@@ -56,6 +56,33 @@ class Tree {
     if (currentNode === null) return currentNode;
 
     
+/*
+    while (currentNode) {
+      if (value < currentNode.value) {
+        currentNode = currentNode.left;
+      } else if (value > currentNode.right) {
+        currentNode = currentNode.right;
+      } else if (value === currentNode.value) {
+        return currentNode.value;
+      }
+    }
+  */
+    
+  }
+
+  find(value) {
+    let currentNode = this.root;
+    
+    while(true) {
+      if (value < currentNode.left) {
+        currentNode = currentNode.left;
+      } else if (value > currentNode.right) {
+        currentNode = currentNode.right;
+      } else if (value === currentNode.data) {
+        console.log(currentNode);
+        return currentNode
+      }
+    }
   }
   
 }
