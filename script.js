@@ -165,15 +165,26 @@ class Tree {
     if (func === null) return values;
     else return values.map(num => func(num))
   }
+
+  inOrder(func = null) {
+    if (this.root === null) return false;
+
+    let currentNode = this.root;
+    let parentNode = null;
+    let stack = [this.root]
+
+    while (currentNode) {
+      if (currentNode.left !== null) {
+        currentNode.left 
+      }
+    }
+  }
 }
-
-
-  
-
 
 let array = [1,2,4,5,8,14,16]
 const tree = new Tree(array)
 console.log(tree)
+
 
 
 const prettyPrint = (node, prefix = "", isLeft = true) => {
@@ -193,3 +204,5 @@ function removeDuplicates(array) {
   array.sort((a, b) => a - b)
   return array.filter((el, index) => array.indexOf(el) === index)
 }
+
+console.log(prettyPrint(tree.root))
