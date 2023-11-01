@@ -185,6 +185,22 @@ class Tree {
     if (func === null) return values;
     else return values.map(val => func(val));
   }
+
+  preOrder(func = null) {
+    if (this.root === null) return false;
+    let values = [];
+    let stack = [];
+    let currentNode = this.root;
+
+    while (currentNode !== null || stack.length > 0) {
+      while (currentNode !== null) {
+        values.push(currentNode.value);
+        currentNode = currentNode.left;
+      }
+    }
+
+    return values;
+  }
 }
 
 let array = [1,2,4,5,8,14,16]
