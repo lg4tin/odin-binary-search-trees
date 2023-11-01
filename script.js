@@ -162,7 +162,8 @@ class Tree {
       if (current.right !== null) queue.push(current.right);
     }
 
-    return values;
+    if (func === null) return values;
+    else return values.map(num => func(num))
   }
 }
 
