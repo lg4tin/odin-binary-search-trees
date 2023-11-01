@@ -168,24 +168,27 @@ class Tree {
 
   inOrder(func = null) {
     if (this.root === null) return false;
-
     let currentNode = this.root;
-    let parentNode = null;
-    let stack = [this.root]
+    let values = [];
+    let stack = [];
 
-    while (currentNode) {
-      if (currentNode.left !== null) {
-        currentNode.left 
+    while (currentNode !== null || stack.length > 0) {
+      while (currentNode !== null) {
+        stack.push(currentNode);
+        currentNode = currentNode.left;
       }
+
+      currentNode = stack.pop();
+      values.push(currentNode.value);
+      currentNode = currentNode.right;
     }
+    return values;
   }
 }
 
 let array = [1,2,4,5,8,14,16]
 const tree = new Tree(array)
 console.log(tree)
-
-
 
 const prettyPrint = (node, prefix = "", isLeft = true) => {
   if (node === null) {
