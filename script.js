@@ -191,12 +191,14 @@ class Tree {
     let values = [];
     let stack = [];
     let currentNode = this.root;
+    stack.push(currentNode);
 
-    while (currentNode !== null || stack.length > 0) {
-      while (currentNode !== null) {
-        values.push(currentNode.value);
-        currentNode = currentNode.left;
-      }
+    while (stack.length > 0) {
+      currentNode = stack.pop();
+      values.push(currentNode.value);
+
+      if (currentNode.right !== null) stack.push(currentNode.right);
+      if (currentNode.left !== null) stack.push(currentNode.left);
     }
 
     return values;
