@@ -163,7 +163,7 @@ class Tree {
     }
 
     if (func === null) return values;
-    else return values.map(num => func(num))
+    else return values.map(num => func(num));
   }
 
   inOrder(func = null) {
@@ -182,7 +182,8 @@ class Tree {
       values.push(currentNode.value);
       currentNode = currentNode.right;
     }
-    return values;
+    if (func === null) return values;
+    else return values.map(val => func(val));
   }
 }
 
