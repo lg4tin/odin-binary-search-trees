@@ -201,7 +201,32 @@ class Tree {
       if (currentNode.left !== null) stack.push(currentNode.left);
     }
 
-    return values;
+    if (func === null) return values;
+    else return values.map(val => func(val));
+  }
+
+  postOrder(func = null) {
+    if (this.root === null) return false;
+
+    let values = [];
+    let stack1 = [];
+    let stack2 = [];
+    stack1.push(this.root);
+    
+    while (stack1.length > 0) {
+      let current = stack1.pop();
+      stack2.push(current.value) ;
+
+      if (current.left !== null) stack1.push(current.left);
+      if (current.right !== null) stack1.push(current.right);
+    }
+
+    while (stack2.length > 0) {
+      values.push(stack2.pop());
+    }
+
+    if (func === null) return values;
+    else return values.map(val => func(val));
   }
 }
 
