@@ -230,12 +230,31 @@ class Tree {
   }
 
   height(node) {
-    let value;
-    if (typeof node === 'object') {
-      value = node.value;
-    } else {
-      value = node;
+  
+    let depth = 0
+ 
+    let q = []
+     
+    q.push(this.root)
+    q.push(null)
+    while(q.length>0){
+        let temp = q.shift()
+     
+        if(temp == null)
+            depth += 1
+         
+        if(temp != null){
+            if(temp.left)
+                q.push(temp.left)
+             
+            if(temp.right)
+                q.push(temp.right)
+        }
+             
+        else if(q.length>0)
+            q.push(null)
     }
+    return depth
 
   }
 }
