@@ -228,6 +228,16 @@ class Tree {
     if (func === null) return values;
     else return values.map(val => func(val));
   }
+
+  height(node) {
+    let value;
+    if (typeof node === 'object') {
+      value = node.value;
+    } else {
+      value = node;
+    }
+
+  }
 }
 
 let array = [1,2,4,5,8,14,16]
