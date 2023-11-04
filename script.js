@@ -276,9 +276,19 @@ class Tree {
     if (diff <= 1 && diff >= -1) return 'Balanced';
     else return 'Not Balanced';
   }
+
+  rebalance() {
+    if (this.isBalanced() == 'Not Balanced') {
+      let order = this.inOrder();
+      this.root = this.buildTree(order);
+      return console.log(prettyPrint(tree.root));
+    } else {
+      return 'Tree is already Balanced';
+    }
+  }
 }
 
-let array = [1,2,4,5,8,14,16,23,34]
+let array = [1,2,4,5,8,14,16]
 const tree = new Tree(array)
 console.log(tree)
 
