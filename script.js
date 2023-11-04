@@ -230,12 +230,13 @@ class Tree {
   }
 
   height(node) {
-  
+    // You can get a node by assigning a var to the .find() method
+
     let depth = 0
  
     let q = []
      
-    q.push(this.root)
+    q.push(node)
     q.push(null)
     while(q.length>0){
         let temp = q.shift()
@@ -255,7 +256,21 @@ class Tree {
             q.push(null)
     }
     return depth
+  }
 
+  depth(node) {
+    let height = 0;
+
+    let q = [];
+
+    q.push(node);
+    q.push(null) 
+
+    while(q.length > 0) {
+      let temp = q.shift();
+
+
+    }
   }
 }
 
