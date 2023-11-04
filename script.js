@@ -288,8 +288,8 @@ class Tree {
   }
 }
 
-let array = [1,2,4,5,8,14,16]
-const tree = new Tree(array)
+// let array = [1,2,4,5,8,14,16]
+const tree = new Tree(randomNums())
 console.log(tree)
 
 const prettyPrint = (node, prefix = "", isLeft = true) => {
@@ -308,6 +308,14 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
 function removeDuplicates(array) {
   array.sort((a, b) => a - b)
   return array.filter((el, index) => array.indexOf(el) === index)
+}
+
+function randomNums() {
+  let array = [];
+  for (let i = 0; i < 7; i++) {
+    array.push(Math.floor(Math.random() * 100))
+  }
+  return array;
 }
 
 console.log(prettyPrint(tree.root))
