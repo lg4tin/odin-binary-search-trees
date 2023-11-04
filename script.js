@@ -232,45 +232,40 @@ class Tree {
   height(node) {
     // You can get a node by assigning a var to the .find() method
 
-    let depth = 0
- 
-    let q = []
-     
-    q.push(node)
-    q.push(null)
-    while(q.length>0){
-        let temp = q.shift()
-     
-        if(temp == null)
-            depth += 1
-         
-        if(temp != null){
-            if(temp.left)
-                q.push(temp.left)
-             
-            if(temp.right)
-                q.push(temp.right)
-        }
-             
-        else if(q.length>0)
-            q.push(null)
-    }
-    return depth
-  }
-
-  depth(node) {
-    let height = 0;
+    let depth = 0;
 
     let q = [];
 
     q.push(node);
-    q.push(null) 
-
-    while(q.length > 0) {
+    q.push(null);
+    
+    while (q.length > 0) {
       let temp = q.shift();
 
+      if (temp == null) {
+        depth += 1;
+      }
 
+      if (temp !== null) {
+        if (temp.left !== null) {
+          q.push(temp.left);
+        }
+
+        if (temp.right !== null) {
+          q.push(temp.right);
+        }
+      } 
+      
+      else if (q.length > 0) {
+        q.push(null);
+      }
+      
     }
+    return depth;
+  }
+
+  depth(node) {
+    return this.height(this.root) - this.height(node);
   }
 }
 
