@@ -261,7 +261,7 @@ class Tree {
       }
       
     }
-    return depth;
+    return depth - 1;
   }
 
   depth(node) {
@@ -269,7 +269,7 @@ class Tree {
   }
 }
 
-let array = [1,2,4,5,8,14,16]
+let array = [1,2,4,5,8,14,16,23,34]
 const tree = new Tree(array)
 console.log(tree)
 
