@@ -267,6 +267,15 @@ class Tree {
   depth(node) {
     return this.height(this.root) - this.height(node);
   }
+
+  isBalanced() {
+    let left = this.root.left;
+    let right = this.root.right;
+
+    let diff = this.height(left) - this.height(right);
+    if (diff <= 1 && diff >= -1) return 'Balanced';
+    else return 'Not Balanced';
+  }
 }
 
 let array = [1,2,4,5,8,14,16,23,34]
